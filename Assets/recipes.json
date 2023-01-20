@@ -1,0 +1,16 @@
+[
+  {
+    "Item": "Blueberries",
+    "Amount": 1,
+    "Requirements": [
+      {
+        "Item": "Stone",
+        "Amount": 3
+      },
+      {
+        "Item": "Wood",
+         "Amount": 1
+      }
+    ]
+  }
+]
