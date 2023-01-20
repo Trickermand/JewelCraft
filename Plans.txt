@@ -1,0 +1,24 @@
+JewelCraft 
+
+Features:
+* Find Jewels
+* In chests
+* On the ground?
+* As mob drops?
+* Craft jewelry with jewels
+* Wear jewelry to modify stats
+* Modify gear?  
+	
+Items:
+* Various jewels
+* Gold bars (and Crude gold bar)
+* Jewelry puch (for carrying a small amount of jewelry, 3 spaces ish)
+* Modified gear?
+* Modified jewels - Special extra stats for a gem
+* Corrupted (Damages you while in inventory, until your craft it)
+* Slimy (slows you while in invetory, but if augmented on a sword, the sword applies slow)
+
+Crafts:
+* Enhance jewels using table that "converts" the jewel
+* Convert coins to "Crude gold bar"
+* Smelt Crude gold bar into gold bar 
