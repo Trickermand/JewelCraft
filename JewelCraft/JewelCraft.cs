@@ -5,8 +5,10 @@
 // Project: JewelCraft
 
 using BepInEx;
+using BepInEx.Logging;
 using Jotunn.Entities;
 using Jotunn.Managers;
+using UnityEngine.Apple;
 
 namespace JewelCraft
 {
@@ -34,7 +36,7 @@ namespace JewelCraft
 
         private void Update()
         {
-
+            Jotunn.Logger.LogInfo("Frame passed");
         }
     }
 }
