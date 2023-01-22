@@ -26,6 +26,7 @@ namespace JewelCraft
 
         // Asset bundles
         private AssetBundle agate;
+        private AssetBundle crude_gold_bar;
 
         // Use this class to add your own localization to the game
         // https://valheim-modding.github.io/Jotunn/tutorials/localization.html
@@ -66,36 +67,33 @@ namespace JewelCraft
             ItemManager.Instance.AddRecipesFromJson("JewelCraft/recipes.json");
 
 
-            string itemName = "agate";
-            agate = AssetUtils.LoadAssetBundleFromResources(itemName);
+            string agateItemName = "agate";
+            string agateItemDesc = "My Agate description";
+            string agateSpritePath = "JewelCraft/agate_sprite.png";
+            string crudeGoldBarItemName = "crude_gold_bar";
+            string crudeGoldBarItemDesc = "My crude gold bar description";
+            string crudeGoldBarSpritePath = "JewelCraft/crude_gold_bar_sprite.png";
+            AddItem(agateItemName, agateItemDesc, agateSpritePath, ref agate);
+            AddItem(crudeGoldBarItemName, crudeGoldBarItemDesc, crudeGoldBarSpritePath, ref crude_gold_bar);
 
-            Logger.LogInfo("Loaded asset bundles");
+        }
 
-            Texture2D TestTex = AssetUtils.LoadTexture("JewelCraft/agate_sprite.png");
+        private void AddItem(string itemName, string itemDesc, string spritePath, ref AssetBundle assetToSet)
+        {
+            assetToSet = AssetUtils.LoadAssetBundleFromResources(itemName);
+            Texture2D TestTex = AssetUtils.LoadTexture(spritePath);
             Sprite TestSprite = Sprite.Create(TestTex, new Rect(0f, 0f, TestTex.width, TestTex.height), Vector2.zero);
 
-            Logger.LogInfo("Created sprites");
-
-            ItemConfig itemConfAgate = new ItemConfig()
+            ItemConfig itemConfig = new ItemConfig()
             {
-                Amount = 2,
+                Description = itemDesc,
                 CraftingStation = null,
-                Description = "My Agate",
                 Icons = new Sprite[1] { TestSprite },
-                Name = itemName,
-                Requirements = new RequirementConfig[1]
-                {
-                    new RequirementConfig() { Amount = 1, Item = "Stone" }
-                }
+                Name = itemName
             };
 
-            Logger.LogInfo("Set up configs");
-
-            CustomItem itemAgate = new CustomItem(agate, itemName, false, itemConfAgate);
-
-            Logger.LogInfo("Adding item " + itemAgate.ToString());
-            ItemManager.Instance.AddItem(itemAgate);
-
+            CustomItem item = new CustomItem(assetToSet, itemName, false, itemConfig);
+            ItemManager.Instance.AddItem(item);
         }
     }
 }

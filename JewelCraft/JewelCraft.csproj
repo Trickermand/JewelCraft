@@ -93,11 +93,15 @@
     <EmbeddedResource Include="Assets\agate">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Assets\crude_gold_bar">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="README.md" />
     <EmbeddedResource Include="Assets\agate_sprite.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <Content Include="Assets\crude_gold_bar_sprite.png" />
     <Content Include="recipes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
