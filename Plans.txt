@@ -1,5 +1,12 @@
 JewelCraft 
 
+Immediate future:
+* Craft crude gold bar from 100 coins
+* smelt crude gold bar to gold bar (silver standin)
+* craft ring from agate and gold bar
+
+
+
 Features:
 * Find Jewels
 * In chests
