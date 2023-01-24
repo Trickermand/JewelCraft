@@ -79,15 +79,6 @@ namespace JewelCraft
             CustomPiece piece = new CustomPiece(jewel_table_asset, "piece_jewel_table", false, pConf);
             PieceManager.Instance.AddPiece(piece);
 
-
-
-
-            //RecipeConfig crudeGoldBarRecipe = new RecipeConfig();
-            //crudeGoldBarRecipe.Item = "crude_gold_bar"; // Name of the item prefab to be crafted
-            //crudeGoldBarRecipe.AddRequirement(new RequirementConfig("Coins", 50));
-            //crudeGoldBarRecipe.CraftingStation = "jewel_table";
-            //ItemManager.Instance.AddRecipe(new CustomRecipe(crudeGoldBarRecipe));
-
         }
 
         private void LoadRecipes()
