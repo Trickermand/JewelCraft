@@ -12,6 +12,7 @@ using Jotunn.Managers;
 using Jotunn.Utils;
 using UnityEngine;
 using UnityEngine.Apple;
+using static Minimap;
 
 namespace JewelCraft
 {
@@ -27,6 +28,7 @@ namespace JewelCraft
         // Asset bundles
         private AssetBundle agate;
         private AssetBundle crude_gold_bar;
+        private AssetBundle jewel_table_asset;
 
         // Use this class to add your own localization to the game
         // https://valheim-modding.github.io/Jotunn/tutorials/localization.html
@@ -39,7 +41,8 @@ namespace JewelCraft
 
 
             LoadRecipes();
-            
+            LoadCraftingTable();
+
             // To learn more about Jotunn's features, go to
             // https://valheim-modding.github.io/Jotunn/tutorials/overview.html
         }
@@ -51,6 +54,39 @@ namespace JewelCraft
 
         private void OnDestroy()
         {
+
+        }
+
+        private void LoadCraftingTable()
+        {
+
+            jewel_table_asset = AssetUtils.LoadAssetBundleFromResources("piece_jewel_table");
+            Texture2D TestTex = AssetUtils.LoadTexture("JewelCraft/piece_jewel_table_sprite.png");
+            Sprite sprite = Sprite.Create(TestTex, new Rect(0f, 0f, TestTex.width, TestTex.height), Vector2.zero);
+
+            PieceConfig pConf = new PieceConfig()
+            {
+                Description = "A Description!!",
+                CraftingStation = "piece_workbench",
+                PieceTable = "Hammer",
+                Icon = sprite,
+                Name = "piece_jewel_table",
+                Category = "Misc",
+                Requirements = new RequirementConfig[1] { new RequirementConfig("Stone", 1) }
+            };
+
+
+            CustomPiece piece = new CustomPiece(jewel_table_asset, "piece_jewel_table", false, pConf);
+            PieceManager.Instance.AddPiece(piece);
+
+
+
+
+            //RecipeConfig crudeGoldBarRecipe = new RecipeConfig();
+            //crudeGoldBarRecipe.Item = "crude_gold_bar"; // Name of the item prefab to be crafted
+            //crudeGoldBarRecipe.AddRequirement(new RequirementConfig("Coins", 50));
+            //crudeGoldBarRecipe.CraftingStation = "jewel_table";
+            //ItemManager.Instance.AddRecipe(new CustomRecipe(crudeGoldBarRecipe));
 
         }
 
@@ -78,7 +114,7 @@ namespace JewelCraft
 
         }
 
-        private void AddItem(string itemName, string itemDesc, string spritePath, ref AssetBundle assetToSet)
+        private void AddItem(string itemName, string itemDesc, string spritePath, ref AssetBundle assetToSet) 
         {
             assetToSet = AssetUtils.LoadAssetBundleFromResources(itemName);
             Texture2D TestTex = AssetUtils.LoadTexture(spritePath);

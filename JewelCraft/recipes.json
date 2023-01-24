@@ -9,7 +9,37 @@
       },
       {
         "Item": "Wood",
-         "Amount": 1
+        "Amount": 1
+      }
+    ]
+  },
+  {
+    "Item": "Coins",
+    "Amount": 100,
+    "Requirements": [
+      {
+        "Item": "Mushroom",
+        "Amount": 1
+      }
+    ]
+  },
+  {
+    "Item": "crude_gold_bar",
+    "Amount": 1,
+    "Requirements": [
+      {
+        "Item": "Coins",
+        "Amount": 50
+      }
+    ]
+  },
+  {
+    "Item": "agate",
+    "Amount": 2,
+    "Requirements": [
+      {
+        "Item": "Stone",
+        "Amount": 1
       }
     ]
   }

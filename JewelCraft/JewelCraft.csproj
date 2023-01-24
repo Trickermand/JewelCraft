@@ -96,6 +96,9 @@
     <EmbeddedResource Include="Assets\crude_gold_bar">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Assets\piece_jewel_table">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="README.md" />
     <EmbeddedResource Include="Assets\agate_sprite.png">
