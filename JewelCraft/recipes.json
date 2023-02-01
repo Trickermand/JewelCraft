@@ -26,6 +26,7 @@
   {
     "Item": "crude_gold_bar",
     "Amount": 1,
+    "CraftingStation":  "piece_jewel_table",
     "Requirements": [
       {
         "Item": "Coins",
