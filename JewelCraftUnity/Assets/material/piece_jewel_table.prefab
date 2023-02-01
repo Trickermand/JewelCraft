@@ -32,7 +32,6 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 6077357614818996200}
-  - {fileID: 202868581744293701}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,15 +76,15 @@ MonoBehaviour:
   m_comfortGroup: 0
   m_comfortObject: {fileID: 0}
   m_groundPiece: 0
-  m_allowAltGroundPlacement: 1
+  m_allowAltGroundPlacement: 0
   m_groundOnly: 0
   m_cultivatedGroundOnly: 0
   m_waterPiece: 0
   m_clipGround: 0
   m_clipEverything: 0
-  m_noInWater: 0
+  m_noInWater: 1
   m_notOnWood: 0
-  m_notOnTiltingSurface: 0
+  m_notOnTiltingSurface: 1
   m_inCeilingOnly: 0
   m_notOnFloor: 0
   m_noClipping: 1
@@ -94,7 +93,7 @@ MonoBehaviour:
   m_spaceRequirement: 0
   m_repairPiece: 0
   m_canBeRemoved: 1
-  m_allowRotatedOverlap: 1
+  m_allowRotatedOverlap: 0
   m_vegetationGroundOnly: 0
   m_blockingPieces: []
   m_blockRadius: 0
@@ -195,7 +194,7 @@ GameObject:
   - component: {fileID: 6077357614818996200}
   - component: {fileID: 7149217180793496474}
   - component: {fileID: 3290530927815292220}
-  - component: {fileID: 2481627401268461051}
+  - component: {fileID: 5355408281092339021}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -269,8 +268,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196562130505265328}
   m_Mesh: {fileID: -6441382870266094761, guid: 42d5d102213921949aa43e4e6b8700ce, type: 3}
---- !u!65 &2481627401268461051
-BoxCollider:
+--- !u!64 &5355408281092339021
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -279,66 +278,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4, y: 2.0340502, z: 2}
-  m_Center: {x: 0, y: 0.017025113, z: 0}
---- !u!1 &6826692938380814680
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 202868581744293701}
-  - component: {fileID: 5363869219986278977}
-  - component: {fileID: 8272347721706056191}
-  m_Layer: 0
-  m_Name: PlayerBase
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &202868581744293701
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6826692938380814680}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5013753345606597042}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &5363869219986278977
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6826692938380814680}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 20
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8272347721706056191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6826692938380814680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 130663047, guid: 4d1b72234264df84dbd7b763354fc7e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_type: 4
-  m_statusEffect: 
-  m_playerOnly: 0
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6441382870266094761, guid: 42d5d102213921949aa43e4e6b8700ce, type: 3}
