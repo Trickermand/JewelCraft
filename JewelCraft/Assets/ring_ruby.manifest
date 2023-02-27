@@ -1,0 +1,51 @@
+ManifestFileVersion: 0
+CRC: 2459149422
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a71b69655b17f06c4f21a30860114b6b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bc59666dd899426d31a2f2d14a1aff79
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 1521249158, guid: 4d1b72234264df84dbd7b763354fc7e3, type: 3}
+- Class: 114
+  Script: {fileID: 825357479, guid: 4d1b72234264df84dbd7b763354fc7e3, type: 3}
+- Class: 114
+  Script: {fileID: 1109157524, guid: 4d1b72234264df84dbd7b763354fc7e3, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: assembly_valheim
+  ClassName: Attack
+- AssemblyName: assembly_valheim
+  ClassName: EffectList
+- AssemblyName: assembly_valheim
+  ClassName: HitData/DamageTypes
+- AssemblyName: assembly_valheim
+  ClassName: ItemDrop/ItemData
+- AssemblyName: assembly_valheim
+  ClassName: ItemDrop/ItemData/SharedData
+Assets:
+- Assets/material/ring_ruby.prefab
+Dependencies: []

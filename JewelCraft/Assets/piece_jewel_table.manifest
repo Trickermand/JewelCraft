@@ -1,0 +1,45 @@
+ManifestFileVersion: 0
+CRC: 2772796782
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1844fe68f13154b42f248c2d58c29025
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4234a01b530a060cc4cc0ff79a16e479
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 1521249158, guid: 4d1b72234264df84dbd7b763354fc7e3, type: 3}
+- Class: 114
+  Script: {fileID: 963225042, guid: 4d1b72234264df84dbd7b763354fc7e3, type: 3}
+- Class: 114
+  Script: {fileID: 2094620348, guid: 4d1b72234264df84dbd7b763354fc7e3, type: 3}
+- Class: 114
+  Script: {fileID: 895252998, guid: 4d1b72234264df84dbd7b763354fc7e3, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: assembly_valheim
+  ClassName: EffectList
+- AssemblyName: assembly_valheim
+  ClassName: HitData/DamageModifiers
+Assets:
+- Assets/material/piece_jewel_table.prefab
+Dependencies: []

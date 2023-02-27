@@ -1,19 +1,5 @@
 [
   {
-    "Item": "Blueberries",
-    "Amount": 1,
-    "Requirements": [
-      {
-        "Item": "Stone",
-        "Amount": 3
-      },
-      {
-        "Item": "Wood",
-        "Amount": 1
-      }
-    ]
-  },
-  {
     "Item": "Coins",
     "Amount": 100,
     "Requirements": [
@@ -26,7 +12,7 @@
   {
     "Item": "crude_gold_bar",
     "Amount": 1,
-    "CraftingStation":  "piece_jewel_table",
+    "CraftingStation": "piece_jewel_table",
     "Requirements": [
       {
         "Item": "Coins",
@@ -35,11 +21,37 @@
     ]
   },
   {
-    "Item": "agate",
+    "Item": "Silver",
+    "Amount": 1,
+    "CraftingStation": "piece_jewel_table",
+    "Requirements": [
+      {
+        "Item": "crude_gold_bar",
+        "Amount": 1
+      }
+    ]
+  },
+  {
+    "Item": "Ruby",
     "Amount": 2,
     "Requirements": [
       {
-        "Item": "Stone",
+        "Item": "Mushroom",
+        "Amount": 1
+      }
+    ]
+  },
+  {
+    "Item": "ring_ruby",
+    "Amount": 1,
+    "CraftingStation": "piece_jewel_table",
+    "Requirements": [
+      {
+        "Item": "Ruby",
+        "Amount": 1
+      },
+      {
+        "Item": "Silver",
         "Amount": 1
       }
     ]

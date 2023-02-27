@@ -26,8 +26,8 @@ namespace JewelCraft
         public const string PluginVersion = "0.0.1";
 
         // Asset bundles
-        private AssetBundle agate;
         private AssetBundle crude_gold_bar;
+        private AssetBundle ring_ruby;
         private AssetBundle jewel_table_asset;
         private AssetBundle cube;
 
@@ -57,6 +57,24 @@ namespace JewelCraft
         private void OnDestroy()
         {
 
+        }
+
+        private CustomStatusEffect GetStatusEffect_RingRuby()
+        {
+            float regen = 1.1f;
+            StatusEffect effect = ScriptableObject.CreateInstance<StatusEffect>();
+            effect.name = "ring_ruby_statusEffect";
+            effect.ModifyHealthRegen(ref regen);
+            effect.m_name = "ring_ruby_statusEffect_m";
+            effect.m_icon = AssetUtils.LoadSpriteFromFile("JotunnModExample/Assets/ring_ruby_sprite.png");
+            effect.m_startMessageType = MessageHud.MessageType.Center;
+            effect.m_startMessage = "You feel healthy";
+            effect.m_stopMessageType = MessageHud.MessageType.Center;
+            effect.m_stopMessage = "You feel fat";
+
+            CustomStatusEffect statusEffect = new CustomStatusEffect(effect, fixReference: false);
+            ItemManager.Instance.AddStatusEffect(statusEffect);
+            return statusEffect;
         }
 
         private void LoadCraftingTable()
@@ -106,6 +124,13 @@ namespace JewelCraft
             PieceManager.Instance.AddPiece(piece);
         }
 
+        //private void AddMock()
+        //{
+        //    Component mock = Mock<Component>.Create("Iron");
+        //    mock.gameObject.
+        //}
+
+
         private void LoadRecipes()
         {
             // Create a custom recipe with a RecipeConfig
@@ -119,19 +144,20 @@ namespace JewelCraft
             ItemManager.Instance.AddRecipesFromJson("JewelCraft/recipes.json");
 
 
-            string agateItemName = "agate";
-            string agateItemDesc = "My Agate description";
-            string agateSpritePath = "JewelCraft/agate_sprite.png";
+            string ringRubyItemName = "ring_ruby";
+            string ringRubyItemDesc = "My ruby ring description";
+            string ringRubySpritePath = "JewelCraft/ring_ruby_sprite.png";
             string crudeGoldBarItemName = "crude_gold_bar";
             string crudeGoldBarItemDesc = "My crude gold bar description";
             string crudeGoldBarSpritePath = "JewelCraft/crude_gold_bar_sprite.png";
-            AddItem(agateItemName, agateItemDesc, agateSpritePath, ref agate);
             AddItem(crudeGoldBarItemName, crudeGoldBarItemDesc, crudeGoldBarSpritePath, ref crude_gold_bar);
-
+            AddItem(ringRubyItemName, ringRubyItemDesc, ringRubySpritePath, ref ring_ruby, GetStatusEffect_RingRuby().StatusEffect);
         }
 
-        private void AddItem(string itemName, string itemDesc, string spritePath, ref AssetBundle assetToSet) 
+        private void AddItem(string itemName, string itemDesc, string spritePath, ref AssetBundle assetToSet, StatusEffect statusEffect = null) 
         {
+            Logger.LogInfo($"Adding item {itemName} with status effect '{statusEffect?.name ?? "nothing"}'");
+
             assetToSet = AssetUtils.LoadAssetBundleFromResources(itemName);
             Texture2D TestTex = AssetUtils.LoadTexture(spritePath);
             Sprite TestSprite = Sprite.Create(TestTex, new Rect(0f, 0f, TestTex.width, TestTex.height), Vector2.zero);
@@ -145,6 +171,9 @@ namespace JewelCraft
             };
 
             CustomItem item = new CustomItem(assetToSet, itemName, false, itemConfig);
+            if (!(statusEffect is null))
+                item.ItemDrop.m_itemData.m_shared.m_equipStatusEffect = statusEffect;
+
             ItemManager.Instance.AddItem(item);
         }
     }

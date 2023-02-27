@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 3367814587
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: agate
+      Dependencies: {}
+    Info_1:
+      Name: crude_gold_bar
+      Dependencies: {}
+    Info_2:
+      Name: piece_jewel_table
+      Dependencies: {}
+    Info_3:
+      Name: cube
+      Dependencies: {}
+    Info_4:
+      Name: gold
+      Dependencies: {}
+    Info_5:
+      Name: ring_ruby
+      Dependencies: {}

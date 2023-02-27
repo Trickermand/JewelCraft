@@ -90,9 +90,6 @@
     <EmbeddedResource Include="Assets\emerald">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assets\agate">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="Assets\crude_gold_bar">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -102,11 +99,11 @@
     <EmbeddedResource Include="Assets\cube">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="README.md" />
-    <EmbeddedResource Include="Assets\agate_sprite.png">
+    <EmbeddedResource Include="Assets\ring_ruby">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="README.md" />
     <Content Include="Assets\crude_gold_bar_sprite.png" />
     <Content Include="recipes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
