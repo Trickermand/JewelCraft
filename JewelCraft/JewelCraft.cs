@@ -124,13 +124,6 @@ namespace JewelCraft
             PieceManager.Instance.AddPiece(piece);
         }
 
-        //private void AddMock()
-        //{
-        //    Component mock = Mock<Component>.Create("Iron");
-        //    mock.gameObject.
-        //}
-
-
         private void LoadRecipes()
         {
             // Create a custom recipe with a RecipeConfig
