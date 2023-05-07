@@ -82,6 +82,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomItems\CustomItemManager.cs" />
+    <Compile Include="CustomItems\CrudeGoldBar.cs" />
+    <Compile Include="CustomItems\GoldBarJc.cs" />
+    <Compile Include="CustomItems\ItemInfo.cs" />
+    <Compile Include="CustomItems\RingRuby.cs" />
+    <Compile Include="MyExamples.cs" />
     <Compile Include="Properties\IgnoreAccessModifiers.cs" />
     <Compile Include="JewelCraft.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

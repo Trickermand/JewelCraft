@@ -6,10 +6,12 @@
 
 using BepInEx;
 using BepInEx.Logging;
+using JewelCraft.CustomItems;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.Apple;
 using static Minimap;
@@ -31,7 +33,6 @@ namespace JewelCraft
         private AssetBundle ball;
         private AssetBundle ring_ruby;
         private AssetBundle jewel_table_asset;
-        private AssetBundle cube;
 
         // Use this class to add your own localization to the game
         // https://valheim-modding.github.io/Jotunn/tutorials/localization.html
@@ -42,10 +43,8 @@ namespace JewelCraft
             // Jotunn comes with its own Logger class to provide a consistent Log style for all mods using it
             Jotunn.Logger.LogInfo("JewelCraft has landed");
 
-
             LoadRecipes();
             LoadCraftingTable();
-            LoadCube();
 
             // To learn more about Jotunn's features, go to
             // https://valheim-modding.github.io/Jotunn/tutorials/overview.html
@@ -81,7 +80,6 @@ namespace JewelCraft
 
         private void LoadCraftingTable()
         {
-
             jewel_table_asset = AssetUtils.LoadAssetBundleFromResources("piece_jewel_table");
             Texture2D TestTex = AssetUtils.LoadTexture("JewelCraft/piece_jewel_table_sprite.png");
             Sprite sprite = Sprite.Create(TestTex, new Rect(0f, 0f, TestTex.width, TestTex.height), Vector2.zero);
@@ -97,87 +95,21 @@ namespace JewelCraft
                 Requirements = new RequirementConfig[1] { new RequirementConfig("Stone", 1) }
             };
 
-
             CustomPiece piece = new CustomPiece(jewel_table_asset, "piece_jewel_table", false, pConf);
-            PieceManager.Instance.AddPiece(piece);
-
-        }
-
-        private void LoadCube()
-        {
-
-            cube = AssetUtils.LoadAssetBundleFromResources("cube");
-            Texture2D TestTex = AssetUtils.LoadTexture("JewelCraft/piece_jewel_table_sprite.png");
-            Sprite sprite = Sprite.Create(TestTex, new Rect(0f, 0f, TestTex.width, TestTex.height), Vector2.zero);
-
-            PieceConfig pConf = new PieceConfig()
-            {
-                Description = "cube",
-                CraftingStation = "piece_workbench",
-                PieceTable = "Hammer",
-                Icon = sprite,
-                Name = "cube",
-                Category = "Misc",
-                Requirements = new RequirementConfig[1] { new RequirementConfig("Stone", 1) }
-            };
-
-
-            CustomPiece piece = new CustomPiece(cube, "cube", false, pConf);
             PieceManager.Instance.AddPiece(piece);
         }
 
         private void LoadRecipes()
         {
-            // Create a custom recipe with a RecipeConfig
-            RecipeConfig meatConfig = new RecipeConfig();
-            meatConfig.Item = "CookedMeat"; // Name of the item prefab to be crafted
-            meatConfig.AddRequirement(new RequirementConfig("Stone", 3)); // Resources and amount needed for it to be crafted
-            meatConfig.AddRequirement(new RequirementConfig("Wood", 1));
-            ItemManager.Instance.AddRecipe(new CustomRecipe(meatConfig));
-
             // Load recipes from JSON file
             ItemManager.Instance.AddRecipesFromJson("JewelCraft/recipes.json");
 
-
-            string ringRubyItemName = "ring_ruby";
-            string ringRubyItemDesc = "My ruby ring description";
-            string ringRubySpritePath = "JewelCraft/ring_ruby_sprite.png";
-            string crudeGoldBarItemName = "crude_gold_bar";
-            string crudeGoldBarItemDesc = "My crude gold bar description";
-            string crudeGoldBarSpritePath = "JewelCraft/crude_gold_bar_sprite.png";
-            string goldBarItemName = "gold_bar_jc";
-            string goldBarItemDesc = "My gold bar description";
-            string goldBarSpritePath = "JewelCraft/gold_bar_sprite.png";
-            AddItem(crudeGoldBarItemName, crudeGoldBarItemDesc, crudeGoldBarSpritePath, ref crude_gold_bar);
-            AddItem(goldBarItemName, goldBarItemDesc, goldBarSpritePath, ref gold_bar);
-            AddItem("ball", "My ball", "JewelCraft/ball.png", ref ball);
-            AddItem(ringRubyItemName, ringRubyItemDesc, ringRubySpritePath, ref ring_ruby, GetStatusEffect_RingRuby().StatusEffect);
-        }
-
-        private void AddItem(string itemName, string itemDesc, string spritePath, ref AssetBundle assetToSet, StatusEffect statusEffect = null) 
-        {
-            Logger.LogInfo($"Adding item '{itemName}', " +
-                $"StatusEffect '{statusEffect?.name ?? "nothing"}'," +
-                $"itemDesc '{itemDesc}'," +
-                $"SpritePath '{spritePath}'");
-
-            assetToSet = AssetUtils.LoadAssetBundleFromResources(itemName);
-            Texture2D TestTex = AssetUtils.LoadTexture(spritePath);
-            Sprite TestSprite = Sprite.Create(TestTex, new Rect(0f, 0f, TestTex.width, TestTex.height), Vector2.zero);
-
-            ItemConfig itemConfig = new ItemConfig()
-            {
-                Description = itemDesc,
-                CraftingStation = null,
-                Icons = new Sprite[1] { TestSprite },
-                Name = itemName
-            };
-
-            CustomItem item = new CustomItem(assetToSet, itemName, false, itemConfig);
-            if (!(statusEffect is null))
-                item.ItemDrop.m_itemData.m_shared.m_equipStatusEffect = statusEffect;
-
-            ItemManager.Instance.AddItem(item);
+            RingRuby.AddItem(ref ring_ruby);
+            CrudeGoldBar.AddItem(ref crude_gold_bar);
+            GoldBarJc.AddItem(ref gold_bar);
+            CustomItemManager.AddItem(
+                new ItemInfo() { Name = "ball", Description = "My ball", SpritePath = "JewelCraft/ball.png" },
+                ref ball);
         }
     }
 }
