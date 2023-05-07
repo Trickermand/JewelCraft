@@ -27,6 +27,8 @@ namespace JewelCraft
 
         // Asset bundles
         private AssetBundle crude_gold_bar;
+        private AssetBundle gold_bar;
+        private AssetBundle ball;
         private AssetBundle ring_ruby;
         private AssetBundle jewel_table_asset;
         private AssetBundle cube;
@@ -143,13 +145,21 @@ namespace JewelCraft
             string crudeGoldBarItemName = "crude_gold_bar";
             string crudeGoldBarItemDesc = "My crude gold bar description";
             string crudeGoldBarSpritePath = "JewelCraft/crude_gold_bar_sprite.png";
+            string goldBarItemName = "gold_bar_jc";
+            string goldBarItemDesc = "My gold bar description";
+            string goldBarSpritePath = "JewelCraft/gold_bar_sprite.png";
             AddItem(crudeGoldBarItemName, crudeGoldBarItemDesc, crudeGoldBarSpritePath, ref crude_gold_bar);
+            AddItem(goldBarItemName, goldBarItemDesc, goldBarSpritePath, ref gold_bar);
+            AddItem("ball", "My ball", "JewelCraft/ball.png", ref ball);
             AddItem(ringRubyItemName, ringRubyItemDesc, ringRubySpritePath, ref ring_ruby, GetStatusEffect_RingRuby().StatusEffect);
         }
 
         private void AddItem(string itemName, string itemDesc, string spritePath, ref AssetBundle assetToSet, StatusEffect statusEffect = null) 
         {
-            Logger.LogInfo($"Adding item {itemName} with status effect '{statusEffect?.name ?? "nothing"}'");
+            Logger.LogInfo($"Adding item '{itemName}', " +
+                $"StatusEffect '{statusEffect?.name ?? "nothing"}'," +
+                $"itemDesc '{itemDesc}'," +
+                $"SpritePath '{spritePath}'");
 
             assetToSet = AssetUtils.LoadAssetBundleFromResources(itemName);
             Texture2D TestTex = AssetUtils.LoadTexture(spritePath);

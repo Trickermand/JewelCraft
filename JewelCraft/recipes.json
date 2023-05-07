@@ -21,7 +21,7 @@
     ]
   },
   {
-    "Item": "Silver",
+    "Item": "gold_bar_jc",
     "Amount": 1,
     "CraftingStation": "piece_jewel_table",
     "Requirements": [
@@ -51,7 +51,17 @@
         "Amount": 1
       },
       {
-        "Item": "Silver",
+        "Item": "gold_bar_jc",
+        "Amount": 1
+      }
+    ]
+  },
+  {
+    "Item": "ball",
+    "Amount": 2,
+    "Requirements": [
+      {
+        "Item": "Stone",
         "Amount": 1
       }
     ]
