@@ -73,7 +73,7 @@ namespace JewelCraft
                 CraftingStation = "piece_workbench",
                 PieceTable = "Hammer",
                 Icon = sprite,
-                Name = "piece_jewel_table",
+                Name = "Jeweler's table",
                 Category = "Misc",
                 Requirements = new RequirementConfig[1] { new RequirementConfig("Stone", 1) }
             };
@@ -88,7 +88,7 @@ namespace JewelCraft
             CrudeGoldBar.AddItem(ref crude_gold_bar);
             GoldBarJc.AddItem(ref gold_bar);
             CustomItemManager.AddItem(
-                new ItemInfo() { AssetName = "ball", Description = "My ball", SpritePath = "JewelCraft/ball.png" },
+                new ItemInfo() {Name = "Ball", AssetName = "ball", Description = "My ball", SpritePath = "JewelCraft/ball.png" },
                 ref ball);
         }
     }

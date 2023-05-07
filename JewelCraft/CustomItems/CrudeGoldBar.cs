@@ -15,6 +15,7 @@ namespace JewelCraft.CustomItems
         {
             ItemInfo itemInfo = new ItemInfo()
             {
+                Name = "Crude gold bar",
                 AssetName = "crude_gold_bar",
                 Description = "My crude gold bar description",
                 SpritePath = "JewelCraft/crude_gold_bar_sprite.png"

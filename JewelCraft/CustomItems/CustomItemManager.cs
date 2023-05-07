@@ -17,6 +17,8 @@ namespace JewelCraft.CustomItems
     {
         public static void AddItem(ItemInfo itemInfo, ref AssetBundle assetToSet)
         {
+            if (itemInfo.Name is null)
+                throw new ArgumentNullException(nameof(itemInfo.Name), $"Set '{nameof(itemInfo.Name)}' before calling this method.");
             if (itemInfo.AssetName is null)
                 throw new ArgumentNullException(nameof(itemInfo.AssetName), $"Set '{nameof(itemInfo.AssetName)}' before calling this method.");
             if (itemInfo.Description is null)
@@ -25,7 +27,8 @@ namespace JewelCraft.CustomItems
                 throw new ArgumentNullException(nameof(itemInfo.SpritePath), $"Set '{nameof(itemInfo.SpritePath)}' before calling this method.");
 
 
-            Jotunn.Logger.LogInfo($"Adding item '{itemInfo.AssetName}', " +
+            Jotunn.Logger.LogInfo($"Adding item '{itemInfo.Name}', " +
+                $"AssetName '{itemInfo.AssetName}'," +
                 $"StatusEffect '{itemInfo.StatusEffect?.StatusEffect?.name ?? "nothing"}'," +
                 $"itemDesc '{itemInfo.Description}'," +
                 $"SpritePath '{itemInfo.SpritePath}'");
@@ -39,7 +42,7 @@ namespace JewelCraft.CustomItems
                 Description = itemInfo.Description,
                 CraftingStation = null,
                 Icons = new Sprite[1] { TestSprite },
-                Name = itemInfo.AssetName
+                Name = itemInfo.Name
             };
 
             CustomItem item = new CustomItem(assetToSet, itemInfo.AssetName, false, itemConfig);

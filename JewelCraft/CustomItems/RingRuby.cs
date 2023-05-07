@@ -17,6 +17,7 @@ namespace JewelCraft.CustomItems
         {
             ItemInfo itemInfo = new ItemInfo()
             {
+                Name = "Ruby ring",
                 AssetName = "ring_ruby",
                 Description = "My ruby ring description",
                 SpritePath = "JewelCraft/ring_ruby_sprite.png",
