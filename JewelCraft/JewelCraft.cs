@@ -88,7 +88,7 @@ namespace JewelCraft
             CrudeGoldBar.AddItem(ref crude_gold_bar);
             GoldBarJc.AddItem(ref gold_bar);
             CustomItemManager.AddItem(
-                new ItemInfo() { Name = "ball", Description = "My ball", SpritePath = "JewelCraft/ball.png" },
+                new ItemInfo() { AssetName = "ball", Description = "My ball", SpritePath = "JewelCraft/ball.png" },
                 ref ball);
         }
     }

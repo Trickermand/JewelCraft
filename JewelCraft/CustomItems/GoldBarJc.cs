@@ -16,7 +16,7 @@ namespace JewelCraft.CustomItems
         {
             ItemInfo itemInfo = new ItemInfo()
             {
-                Name = "gold_bar_jc",
+                AssetName = "gold_bar_jc",
                 Description = "My gold bar description",
                 SpritePath = "JewelCraft/gold_bar_sprite.png"
             };

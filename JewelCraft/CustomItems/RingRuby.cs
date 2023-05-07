@@ -17,7 +17,7 @@ namespace JewelCraft.CustomItems
         {
             ItemInfo itemInfo = new ItemInfo()
             {
-                Name = "ring_ruby",
+                AssetName = "ring_ruby",
                 Description = "My ruby ring description",
                 SpritePath = "JewelCraft/ring_ruby_sprite.png",
                 StatusEffect = GetStatusEffect_RingRuby()
