@@ -84,8 +84,6 @@ namespace JewelCraft
 
         private void LoadItems()
         {
-            // Load recipes from JSON file
-
             RingRuby.AddItem(ref ring_ruby);
             CrudeGoldBar.AddItem(ref crude_gold_bar);
             GoldBarJc.AddItem(ref gold_bar);
