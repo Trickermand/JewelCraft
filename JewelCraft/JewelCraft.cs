@@ -43,8 +43,9 @@ namespace JewelCraft
             // Jotunn comes with its own Logger class to provide a consistent Log style for all mods using it
             Jotunn.Logger.LogInfo("JewelCraft has landed");
 
-            LoadRecipes();
+            LoadItems();
             LoadCraftingTable();
+            ItemManager.Instance.AddRecipesFromJson("JewelCraft/recipes.json");
 
             // To learn more about Jotunn's features, go to
             // https://valheim-modding.github.io/Jotunn/tutorials/overview.html
@@ -58,24 +59,6 @@ namespace JewelCraft
         private void OnDestroy()
         {
 
-        }
-
-        private CustomStatusEffect GetStatusEffect_RingRuby()
-        {
-            float regen = 1.1f;
-            StatusEffect effect = ScriptableObject.CreateInstance<StatusEffect>();
-            effect.name = "ring_ruby_statusEffect";
-            effect.ModifyHealthRegen(ref regen);
-            effect.m_name = "ring_ruby_statusEffect_m";
-            effect.m_icon = AssetUtils.LoadSpriteFromFile("JotunnModExample/Assets/ring_ruby_sprite.png");
-            effect.m_startMessageType = MessageHud.MessageType.Center;
-            effect.m_startMessage = "You feel healthy";
-            effect.m_stopMessageType = MessageHud.MessageType.Center;
-            effect.m_stopMessage = "You feel fat";
-
-            CustomStatusEffect statusEffect = new CustomStatusEffect(effect, fixReference: false);
-            ItemManager.Instance.AddStatusEffect(statusEffect);
-            return statusEffect;
         }
 
         private void LoadCraftingTable()
@@ -99,10 +82,9 @@ namespace JewelCraft
             PieceManager.Instance.AddPiece(piece);
         }
 
-        private void LoadRecipes()
+        private void LoadItems()
         {
             // Load recipes from JSON file
-            ItemManager.Instance.AddRecipesFromJson("JewelCraft/recipes.json");
 
             RingRuby.AddItem(ref ring_ruby);
             CrudeGoldBar.AddItem(ref crude_gold_bar);
